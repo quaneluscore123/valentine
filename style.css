@@ -257,6 +257,69 @@ main {
     text-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
 }
 
+/* Heart Vector Animation */
+.heart-vector-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.heart-vector {
+    width: 300px;
+    height: 300px;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6));
+    animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.countdown-value-display {
+    background: rgba(255, 20, 147, 0.2);
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    padding: 15px 20px;
+    min-width: 90px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.countdown-value-display:hover {
+    background: rgba(255, 20, 147, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.count-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff69b4;
+    display: block;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+.count-label {
+    font-size: 0.9rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Legacy countdown styles (kept for compatibility) */
 .countdown {
     display: flex;
     justify-content: center;
@@ -353,6 +416,21 @@ footer {
     }
 }
 
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(1.05);
+    }
+}
+
 #snow {
     position: fixed;
     top: 0;
@@ -416,5 +494,27 @@ footer {
 
     .gallery-item {
         font-size: 2.5rem;
+    }
+
+    .heart-vector {
+        width: 200px;
+        height: 200px;
+    }
+
+    .countdown-display {
+        gap: 15px;
+    }
+
+    .countdown-value-display {
+        min-width: 80px;
+        padding: 12px 15px;
+    }
+
+    .count-number {
+        font-size: 1.5rem;
+    }
+
+    .count-label {
+        font-size: 0.8rem;
     }
 }

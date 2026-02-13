@@ -125,6 +125,11 @@ function startCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
         
+        const startDate = new Date(today.getFullYear(), 1, 1);
+        const totalDistance = targetDate - startDate;
+        const elapsedDistance = totalDistance - Math.max(distance, 0);
+        const percentageFilled = (elapsedDistance / totalDistance) * 100;
+        
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -135,11 +140,49 @@ function startCountdown() {
         document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
         document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         
+        updateHeartFill(percentageFilled);
+        
         if (distance <= 0) {
             clearInterval(countdownInterval);
             document.querySelector('.countdown-section h2').innerHTML = '💕 Happy Valentine\'s Day! 💕';
+            updateHeartFill(100);
         }
-    }, 1000);
+    }, 666);
+}
+
+function updateHeartFill(percentage) {
+    const heartFill = document.getElementById('heartFill');
+    if (heartFill) {
+        const clipPercentage = percentage;
+        heartFill.style.clipPath = `polygon(
+            0% ${100 - clipPercentage}%,
+            0% 100%,
+            100% 100%,
+            100% ${100 - clipPercentage}%,
+            50% ${Math.max(100 - clipPercentage - 30, 0)}%
+        )`;
+        
+        const offset = (100 - clipPercentage) / 100;
+        heartFill.style.opacity = Math.min(0.8 + (clipPercentage / 100) * 0.2, 1.0);
+        
+        const svg = document.querySelector('.heart-vector');
+        if (svg) {
+            const style = document.createElement('style');
+            if (!document.getElementById('heartClipStyle')) {
+                style.id = 'heartClipStyle';
+                document.head.appendChild(style);
+            } else {
+                style = document.getElementById('heartClipStyle');
+            }
+            
+            style.textContent = `
+                #heartFill {
+                    clip-path: inset(${100 - clipPercentage}% 0 0 0);
+                    transition: clip-path 0.3s ease-out;
+                }
+            `;
+        }
+    }
 }
 
 document.addEventListener('keydown', function(e) {
