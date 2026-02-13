@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="snow" id="snow"></div>
+        
+        <header>
+            <h1 class="title">Happy Valentine's Day</h1>
+        </header>
+
+        <main>
+            <div class="hearts-container">
+                <div class="heart large"></div>
+                <div class="heart medium"></div>
+                <div class="heart small"></div>
+            </div>
+
+            <section class="message-section">
+                <div class="card">
+                    <h2>✨ Thươn lắm mới làm cho đấy biết ơn đi ✨</h2>
+                    <p class="love-message">
+                        Chúc em Rie một ngày valentine vui vẻ<br>
+                        <p style="text-align: center;">=)))</p><br>
+                    </p>
+                </div>
+            </section>
+
+            <section class="interactive-section">
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="generateHearts()">💕 Tạo Trái Tim</button>
+                    <button class="btn btn-secondary" onclick="changeMessage()">Thử ấn vào đây đi</button>
+                    <button class="btn btn-tertiary" onclick="playMusic()">🎵 Phát Nhạc</button>
+                </div>
+            </section>
+
+            <section class="countdown-section">
+                <h2>Đếm Ngược Đến Ngày Mai</h2>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-value">0</span>
+                        <p>Ngày</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-value">0</span>
+                        <p>Giờ</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-value">0</span>
+                        <p>Phút</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-value">0</span>
+                        <p>Giây</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="./music/CHĂM EM MỘT ĐỜI - ĐỨC PHÚC x KAI DINH x KEWTIIE  OFFICIAL MUSIC VIDEO  VALENTINE 2025 (mp3cut.net).mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
