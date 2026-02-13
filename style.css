@@ -353,7 +353,6 @@ footer {
     }
 }
 
-/* Snow/Particles */
 #snow {
     position: fixed;
     top: 0;
@@ -373,7 +372,7 @@ footer {
     animation: fall linear infinite;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
     .title {
         font-size: 2.5rem;

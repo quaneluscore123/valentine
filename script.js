@@ -1,4 +1,3 @@
-// Array of romantic messages
 const messages = [
     "Xì xì",
     "Chậc chậc",
@@ -116,7 +115,6 @@ function createParticles() {
 
 function startCountdown() {
     const countdownInterval = setInterval(() => {
-        // Target date: Next February 14th
         const today = new Date();
         let targetDate = new Date(today.getFullYear(), 1, 14);
         
